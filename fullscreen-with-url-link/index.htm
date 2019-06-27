@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Parent page</title>
+
+    <style type="text/css">
+
+        body {
+            margin:0px;
+            padding:0px;
+        }
+
+        #frigg {
+            display: block;
+            border: none;
+            height: 100vh;
+            width: 100vw;
+        }
+
+    </style>
+
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+<iframe src="https://player.systeme-frigg.org/#project=8" id="frigg"></iframe>
+
+
+<script type="text/javascript">
+
+    document.getElementById('frigg').addEventListener('load', function(e){
+
+        var messageData = {
+            'parent-href': window.location.href
+        };
+
+        e.target.contentWindow.postMessage(JSON.stringify(messageData), '*');
+    })
+
+</script>
+
+</body>
+</html>
