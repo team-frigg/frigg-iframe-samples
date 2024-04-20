@@ -5,15 +5,17 @@
     <title>Parent page</title>
 
     <style type="text/css">
+
+
         #frigg {
-            position: absolute;
+            position: fixed;
 
             top: 0;
             right: 0;
 
             margin: 2rem;
             width: 500px;
-            height: 800px;
+            height: calc(100vh - 4rem); //2x margin = 4rem 
 
             display: block;
             border: 0;
@@ -22,6 +24,7 @@
         }
 
         body {
+            padding: 0px;
             padding-right: calc(500px + 3rem);
         }
     </style>

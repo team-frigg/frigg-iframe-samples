@@ -29,14 +29,23 @@
 
 <script type="text/javascript">
 
-    document.getElementById('frigg').addEventListener('load', function(e){
+    window.addEventListener("message", function(e){
+        if (e.data.event == 'FRIGG_SCENE_LOADED') {
+            window.location.hash = "project=" + e.data.project + "&scene=" + e.data.scene
+        }
 
-        var messageData = {
-            'parent-href': window.location.href
-        };
+    }, false);
 
-        e.target.contentWindow.postMessage(JSON.stringify(messageData), '*');
-    })
+    var hash = window.location.hash
+    if (hash.includes("project=") && hash.includes("scene=")) {
+        var friggFrame = document.getElementById("frigg");
+        var src = "https://player.systeme-frigg.org/" + window.location.hash
+        friggFrame.src = src;
+    }
+
+    
+    
+
 
 </script>
 
